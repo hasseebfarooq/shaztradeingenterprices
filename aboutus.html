@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaz Trading Enterprises </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #1a5276;
+            --primary-light: #2c82c9;
+            --secondary: #f39c12;
+            --secondary-dark: #e67e22;
+            --accent: #2ecc71;
+            --accent-light: #58d68d;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --gray-light: #ecf0f1;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-slow: all 0.6s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+            font-size: 16px;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(243, 156, 18, 0.5);
+        }
+
+        .btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            box-shadow: 0 5px 15px rgba(26, 82, 118, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 25px rgba(26, 82, 118, 0.5);
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-light:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(26, 82, 118, 0.95);
+            color: white;
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background: rgba(26, 82, 118, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        .logo-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 28px;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-details span:first-child {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .contact-details span:last-child {
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--secondary);
+        }
+
+        nav a:hover:after,
+        nav a.active:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 10px;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 10px;
+        }
+
+        .footer-links a:hover i {
+            color: var(--secondary);
+        }
+
+        .footer-contact div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+
+        .footer-contact i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 15px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            20% {
+                left: 100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h2 {
+                font-size: 50px;
+            }
+
+            .section-title h2 {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 180px 0 120px;
+            }
+
+            .hero h2 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 20px;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 30px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav.active {
+                display: block;
+                animation: fadeIn 0.5s;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                display: block;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav a:after {
+                display: none;
+            }
+
+            .hero {
+                padding: 160px 0 100px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .cta-section h2 {
+                font-size: 36px;
+            }
+
+            .testimonial-slide {
+                padding: 30px;
+            }
+
+            .testimonial-text {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .contact-item {
+                justify-content: center;
+            }
+
+            .logo-text h1 {
+                font-size: 24px;
+            }
+
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .feature-card,
+            .product-card,
+            .supplier-card {
+                padding: 30px 20px;
+            }
+
+            .products-filter {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .footer-content {
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Shaz Trading</h1>
+                        <span>ENTERPRISES</span>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <span>Call Us</span>
+                            <span>+92 318 1476231</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <span>Email Us</span>
+                            <span>info@shaztradingenterprises.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    /* Mobile View Only */
+                    @media (max-width: 768px) {
+
+                        /* Contact info hide on mobile */
+                        .contact-info {
+                            display: none;
+                        }
+
+                        /* Mobile menu button show on right side */
+                        .mobile-menu-btn {
+                            display: block;
+                            margin-left: auto;
+                            background: none;
+                            border: none;
+                            color: white;
+                            font-size: 1.5em;
+                            cursor: pointer;
+                            padding: 10px;
+                        }
+                    }
+
+                    /* Desktop View - Everything remains EXACTLY same */
+                    @media (min-width: 769px) {
+                        .contact-info {
+                            display: flex;
+                            /* Show contact info */
+                        }
+
+                        .mobile-menu-btn {
+                            display: none;
+                            /* Hide menu button */
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        .contact-info {
+                            display: none !important;
+                        }
+
+                        .mobile-menu-btn {
+                            display: block !important;
+                            position: fixed !important;
+                            right: 20px !important;
+                            top: 20px !important;
+                            background: #1a5276 !important;
+                            border: none !important;
+                            color: white !important;
+                            font-size: 1.5em !important;
+                            padding: 12px !important;
+                            border-radius: 5px !important;
+                            z-index: 9999 !important;
+                        }
+                    }
+                </style>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="#about" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <br>
+    
+ <!--About Us Section -->
+    <br>
+    <br>
+    <br>
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-header">
+                <h2>About Us</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="about-content">
+    <div class="about-main">
+        <p class="lead-text">
+            Your reliable one-stop partner for quality business supplies and industrial materials.
+        </p>
+
+        <div class="about-description">
+            <p>
+                Shaz Trading Enterprises is a trusted general supply company offering a wide range of quality products 
+                for businesses, institutions, and organizations. From office essentials and electronics to industrial 
+                tools and hygiene supplies, we aim to be your dependable procurement partner.
+            </p>
+
+            <p>
+                Backed by our parent company, <strong>Team Spirits (United Kingdom)<a 
+                        href="https://www.team-spirits.co.uk/" class="site-icon" title="Visit our site">
+                        <i class="fas fa-link"></i>
+                    </a>
+                </strong>, we combine local expertise with international standards in sourcing and customer service. 
+                This partnership helps us deliver competitive pricing, quality assurance, and timely delivery.
+            </p>
+
+            <p>
+                At Shaz Trading Enterprises, we focus on flexibility, responsiveness, and custom solutions — ensuring 
+                your supply needs are handled efficiently and professionally.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+                <!-- Agar Font Awesome nahin loaded, to head mein ye add karein -->
+                <link rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+
+                <!-- CSS -->
+                <style>
+                    .site-icon {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 44px;
+                        height: 44px;
+                        background: #ffff;
+                        /* black background */
+                        color: black;
+                        /* golden yellow text/icon */
+                        border-radius: 10px;
+                        text-decoration: none;
+                        font-size: 18px;
+                        transition: transform 0.15s ease, box-shadow 0.15s ease;
+                        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                    }
+
+                    .site-icon:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+                        filter: brightness(1.05);
+                    }
+                </style>
+
+                <!--
+                <div class="about-strengths">
+                    <h3>Our Strengths</h3>
+                    <div class="strengths-grid">
+                        <div class="strength-card">
+                            <div class="strength-icon">📦</div>
+                            <h4>Wide Product Range</h4>
+                            <p>Comprehensive solutions covering multiple sectors and industries</p>
+                        </div>
+
+                        <div class="strength-card">
+                            <div class="strength-icon">🌐</div>
+                            <h4>Strong Network</h4>
+                            <p>Extensive sourcing network and reliable supplier partnerships</p>
+                        </div>
+
+                        <div class="strength-card">
+                            <div class="strength-icon">⭐</div>
+                            <h4>Quality Commitment</h4>
+                            <p>Dedicated to quality, reliability, and customer satisfaction</p>
+                        </div>
+
+                        <div class="strength-card">
+                            <div class="strength-icon">💬</div>
+                            <h4>Transparent Communication</h4>
+                            <p>Clear, honest, and ethical business practices</p>
+                        </div>
+
+                        <div class="strength-card">
+                            <div class="strength-icon">🇬🇧</div>
+                            <h4>International Backing</h4>
+                            <p>Supported by Team Spirits, UK with global standards</p>
+                        </div>
+                    </div>
+                </div>-->
+
+                <br>
+                <br>
+
+
+                <div class="about-mission">
+                    <div class="mission-card">
+                        <h3>Our Mission</h3>
+                        <p>
+                            To simplify procurement processes for schools, hospitals, government departments, factories,
+                            and private companies—delivering reliability, efficiency, and affordability in every
+                            transaction.
+                        </p>
+                        <div class="clients-list">
+                            <span>🏫 Schools</span>
+                            <span>🏥 Hospitals</span>
+                            <span>🏭 Factories</span>
+                            <span>🏢 Government</span>
+                            <span>💼 Private Companies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .about-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-header h2 {
+            font-size: 3em;
+            color: #1a5276;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #1a5276 0%, #2c82c9 100%);
+            margin: 0 auto;
+            border-radius: 2px;
+
+
+
+      
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-main {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .lead-text {
+            font-size: 1.4em;
+            color: #2c3e50;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .about-description p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .about-strengths {
+            margin-bottom: 50px;
+        }
+
+        .about-strengths h3 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #1a5276;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .strength-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .strength-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(26, 82, 118, 0.15);
+        }
+
+        .strength-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .strength-card h4 {
+            color: #1a5276;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .strength-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .about-mission {
+            background: linear-gradient(135deg, #1a5276 0%, #2c82c9 100%);
+            border-radius: 20px;
+            padding: 50px;
+            color: white;
+        }
+
+        .mission-card h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .mission-card p {
+            font-size: 1.2em;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .clients-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .clients-list span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 60px 0;
+            }
+
+            .about-header h2 {
+                font-size: 2.2em;
+            }
+
+            .about-main {
+                padding: 30px 20px;
+            }
+
+            .lead-text {
+                font-size: 1.2em;
+            }
+
+            .strengths-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .about-mission {
+                padding: 30px 20px;
+            }
+
+            .clients-list {
+                gap: 10px;
+            }
+
+            .clients-list span {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-header h2 {
+                font-size: 1.8em;
+            }
+
+            .mission-card h3 {
+                font-size: 1.6em;
+            }
+
+            .mission-card p {
+                font-size: 1em;
+            }
+        }
+    </style>
+
+   
+   <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Shaz Trading Enterprises</h3>
+                    <p>Your trusted partner for quality industrial supplies and materials. We connect businesses with
+                        reliable suppliers across Pakistan and beyond.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="index.html#products"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="#aboutus"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Office# E668/4 street#2 Mian Mir colony Lahore Cantt</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>+92 318 1476231</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@shaztradingenterprises.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Shaz Trading Enterprises. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Testimonial Slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+
+        function showTestimonialSlide(index) {
+            // Hide all slides
+            testimonialSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Remove active class from all dots
+            testimonialDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+
+            // Show selected slide and activate corresponding dot
+            testimonialSlides[index].classList.add('active');
+            testimonialDots[index].classList.add('active');
+        }
+
+        // Add click event to dots
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showTestimonialSlide(index);
+            });
+        });
+
+        // Auto slide testimonials
+        let currentSlide = 0;
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonialSlides.length;
+            showTestimonialSlide(currentSlide);
+        }, 6000);
+
+        // Product Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 200);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 500);
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active class to nav links based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.feature-card, .product-card, .supplier-card');
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state for animation
+        window.addEventListener('load', () => {
+            const elements = document.querySelectorAll('.feature-card, .product-card, .supplier-card');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            // Trigger animation
+            setTimeout(animateOnScroll, 300);
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+
+</html>

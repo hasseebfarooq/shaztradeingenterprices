@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -617,206 +616,7 @@
             color: var(--secondary);
         }
 
-        /* Suppliers Section */
-        .suppliers-section {
-            background-color: white;
-            position: relative;
-        }
-
-        .suppliers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .supplier-card {
-            background-color: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-light);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .supplier-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow);
-        }
-
-        .supplier-img {
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 70px;
-            position: relative;
-        }
-
-        .supplier-info {
-            padding: 30px;
-        }
-
-        .supplier-info h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .supplier-info p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        .supplier-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .supplier-contact div {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .supplier-contact i {
-            width: 40px;
-            height: 40px;
-            background: var(--gray-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-        }
-
-        .testimonials-section .section-title h2 {
-            color: white;
-        }
-
-        .testimonials-section .section-title h2:after {
-            background: var(--secondary);
-        }
-
-        .testimonials-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial-slide {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 50px;
-            border-radius: 20px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            display: none;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .testimonial-slide.active {
-            display: block;
-            animation: fadeIn 1s;
-        }
-
-        .testimonial-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            overflow: hidden;
-        }
-
-        .testimonial-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 25px;
-            font-size: 20px;
-            line-height: 1.6;
-            position: relative;
-        }
-
-        .testimonial-text:before,
-        .testimonial-text:after {
-            content: '"';
-            font-size: 60px;
-            color: rgba(255, 255, 255, 0.3);
-            position: absolute;
-            line-height: 1;
-        }
-
-        .testimonial-text:before {
-            top: -20px;
-            left: -30px;
-        }
-
-        .testimonial-text:after {
-            bottom: -50px;
-            right: -30px;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .testimonial-company {
-            color: var(--secondary);
-            font-weight: 500;
-        }
-
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .testimonial-dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .testimonial-dot.active {
-            background: white;
-            transform: scale(1.2);
-        }
+        
 
         /* CTA Section */
         .cta-section {
@@ -1227,7 +1027,7 @@
                         </div>
                         <div class="contact-details">
                             <span>Email Us</span>
-                            <span>info@shaztrading.com</span>
+                            <span>info@shaztradingenterprises.com</span>
                         </div>
                     </div>
                 </div>
@@ -1293,8 +1093,8 @@
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#products">Products</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -1369,7 +1169,7 @@
     <section class="products-section" id="products">
         <div class="container">
             <div class="section-title">
-                <h2>Our Products & Services</h2>
+                <h2>Our Products </h2>
                 <p>Complete business solutions with quality products from trusted suppliers across Pakistan and beyond.
                 </p>
             </div>
@@ -1512,7 +1312,7 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
+    <!-- About Us Section 
 <section class="about-section" id="about">
     <div class="container">
         <div class="about-header">
@@ -1579,7 +1379,7 @@
 }
 </style>
 
-            
+            <!--
             <div class="about-strengths">
                 <h3>Our Strengths</h3>
                 <div class="strengths-grid">
@@ -1835,7 +1635,7 @@
 }
 </style>
 
-    <!-- Suppliers Section 
+     Suppliers Section 
     <section class="suppliers-section" id="suppliers">
         <div class="container">
             <div class="section-title">
@@ -1958,6 +1758,18 @@
             </div>
         </div>
     </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
      CTA Section -->
     <section class="cta-section">
@@ -1970,9 +1782,34 @@
             </div>
         </div>
     </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
 
 
-    <!-- Contact Section -->
+    <!-- Contact Section 
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-title">
@@ -1982,11 +1819,11 @@
 
 
 
-            <!-- Contact Section -->
+             Contact Section 
             <section class="contact-section" id="contact">
                 <div class="container">
                     <div class="contact-container">
-                        <!-- Left Side - Brand & Info -->
+                     Left Side - Brand & Info 
                         <div class="contact-brand">
                             <div class="brand-header">
                                 <h1 class="brand-title">Shaz Trading</h1>
@@ -2015,8 +1852,7 @@
                             </div>
                         </div>
 
-                        <!-- Right Side - Contact Form -->
-                       <!-- Right Side - Contact Form -->
+                         Right Side - Contact Form 
 <div class="contact-form-wrapper">
     <div class="contact-form">
         <form class="form" id="contactForm">
@@ -2058,8 +1894,7 @@
             <button type="submit" class="submit-btn">
                 Send Message <i class="fas fa-paper-plane"></i>
             </button>
-            
-            <!-- Thank You Message -->
+   
             <div id="thankYouBox" style="display:none; background:#2ecc71; color:white; padding:15px; text-align:center; border-radius:10px; margin-top:20px; font-weight:600;">
                 ✅ Thank you! Hamara numainda jald hi aap se rabta karega.
             </div>
@@ -2067,8 +1902,7 @@
     </div>
 </div>
 
-
-                <!-- Contact Preference Modal 
+Contact Preference Modal 
                 <div id="contactModal" class="modal">
                     <div class="modal-content">
                         <span class="close-btn">&times;</span>
@@ -2728,7 +2562,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
                         </div>
                         <div>
                             <i class="fas fa-envelope"></i>
-                            <span>info@shaztrading.com</span>
+                            <span>info@shaztradingenterprises.com</span>
                         </div>
                         <div>
                             <i class="fas fa-clock"></i>
