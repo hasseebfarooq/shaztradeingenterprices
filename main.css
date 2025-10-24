@@ -1,0 +1,107 @@
+:root{
+  --bg: #0b0b0c;
+  --card: #0f1720;
+  --accent: #c89b1a;
+  --muted: #cfd8dc;
+  --radius: 12px;
+  --maxw: 820px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#061018 0%, #0a0f14 100%);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 16px;
+}
+
+.container{
+  width:100%;
+  max-width:var(--maxw);
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:32px;
+  border-radius:var(--radius);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  border: 1px solid rgba(200,155,26,0.08);
+}
+
+.title{
+  margin:0 0 6px 0;
+  color: #fff;
+  font-size:1.6rem;
+  letter-spacing:0.2px;
+}
+
+.subtitle{
+  margin:0 0 20px 0;
+  color: #aebfc9;
+  font-size:0.95rem;
+}
+
+.form label{
+  display:block;
+  margin-bottom:14px;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+.form label span{
+  display:block;
+  margin-bottom:6px;
+  font-weight:600;
+  color:#d9e6ef;
+}
+
+input[type="text"],
+input[type="email"],
+textarea{
+  width:100%;
+  padding:12px 14px;
+  background: rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.04);
+  color: #e6f0f6;
+  border-radius:10px;
+  font-size:0.95rem;
+  outline:none;
+  transition: box-shadow .18s ease, border .18s ease;
+}
+
+input:focus, textarea:focus{
+  box-shadow: 0 6px 18px rgba(200,155,26,0.10);
+  border-color: var(--accent);
+}
+
+.btn{
+  display:inline-block;
+  margin-top:6px;
+  background: linear-gradient(90deg, var(--accent), #ffd55a);
+  color:#0b0b0c;
+  padding:10px 18px;
+  border-radius:10px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  font-size:0.95rem;
+  transition: transform .12s ease;
+}
+
+.btn:active{ transform: translateY(1px); }
+.btn:hover{ filter:brightness(0.98); }
+
+/* Responsive tweaks */
+@media (max-width:600px){
+  .card{ padding:20px; }
+  .title{ font-size:1.35rem; }
+  .subtitle{ font-size:0.9rem; }
+  input[type="text"], input[type="email"], textarea{ padding:10px; }
+}
